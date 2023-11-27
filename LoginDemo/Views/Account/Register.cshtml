@@ -1,0 +1,58 @@
+﻿@model LoginDemo.Models.User
+
+@{
+    ViewBag.Title = "Register";
+}
+<h1>
+    @ViewBag.msg
+</h1>
+
+<div class="row">
+    <br />
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <fieldset>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })   <!--Enable Data Anotation-->
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserName, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })<!Display of Error Notification-->
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" }) <!Display of Error Notification-->
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })<!Display of Error Notification-->
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.FileUpload, new { @class = "col-lg-2 control-label" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.FileUpload, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.FileUpload, "", new { @class = "text-danger" })<!Display of Error Notification-->
+                </div>
+             </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.DateField, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-10">
+            @Html.TextBoxFor(m => m.DateField, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.DateField, "", new { @class = "text-danger" })<!Display of Error Notification-->
+</div>
+        </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </div>
+</fieldset>
+    }
+</div>
